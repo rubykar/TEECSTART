@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        h1{text-align: center;}
+        p{text-align: center;}
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <br>
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-md-6">
+                        <div class = "card card-body">
+                            <h1> Are you sure u want to delete "{{client}}" ?</h1>
+
+                            <form action="{% url 'delete_client' client.id %}" method="POST">
+                                {% csrf_token %}
+                        
+                                <button href="{% url 'demoapp:dash2' %}" class='btn btn-warning' >Cancel</button>
+                        
+                                <button type="submit" class="btn btn-danger">Confirm</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

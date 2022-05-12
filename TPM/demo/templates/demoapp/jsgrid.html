@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | jsGrid</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{%static "ADMINLTE/plugins/fontawesome-free/css/all.min.css" %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- jsGrid -->
+  <link rel="stylesheet" href="{%static "ADMINLTE/plugins/jsgrid/jsgrid.min.css" %}">
+  <link rel="stylesheet" href="{%static "ADMINLTE/plugins/jsgrid/jsgrid-theme.min.css" %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{%static "ADMINLTE/dist/css/adminlte.min.css" %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="content-wrapper">
+ <!-- Content Wrapper. Contains page content -->
+<div class="container-fluid">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="jumbotron" style="width:auto">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Clients</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">jsGrid</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Main content -->
+
+  </div>  
+
+    <section class="content">
+      <div class="card" style='width:auto'>
+        <div class="card-header">
+          <h3 class="card-title">jsGrid</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div id="jsGrid1"></div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
+  </footer>
+ 
+<!-- jQuery -->
+<script src="{%static "ADMINLTE/plugins/jquery/jquery.min.js" %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{%static "ADMINLTE/plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<!-- jsGrid -->
+<script src="{%static "ADMINLTE/plugins/jsgrid/demos/db.js" %}"></script>
+<script src="{%static "ADMINLTE/plugins/jsgrid/jsgrid.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{%static "ADMINLTE/dist/js/adminlte.min.js" %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{%static "ADMINLTE/dist/js/demo.js" %}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#jsGrid1").jsGrid({
+        height:"100%"  ,
+        width: "100%",
+ 
+        sorting: true,
+        paging: true,
+ 
+        data: db.clients,
+ 
+        fields: [
+            { name: "Name", type: "text", width: 400 },
+            { name: "Status", type: "text", width: 400 },
+            { name: "PAN", type: "text", width: 400 },
+            { name: "Email", type: "select", items: db.countries, valueField: "Id", textField: "Name", width: 400  },
+            { name: "Phone_num", type: "checkbox", title: "Is Married", width: 400  }
+        ]
+    });
+  });
+</script>
+</body>
+</html>

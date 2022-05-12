@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'demoapp/Dashboard2.html' %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block client_block %}
+    <a href="{%url 'demoapp:dash5' %}" class="btn btn-primary">Work</a>
+    {% endblock %} {% block table_block %} {% endblock %}
+  </body>
+</html>

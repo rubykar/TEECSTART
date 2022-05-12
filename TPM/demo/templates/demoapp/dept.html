@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    h1{text-align: center;}
+    p{text-align: center;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <h1> Fill out the Form!</h1>
+    <div class="container-fluid">
+        <div class = "jumbotron">
+        <h1>Please SignUp Here </h1>
+        <form  method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-outline-warning" value="submit">
+        </form>
+    </div>
+  </div>
+</body>
+</html>
